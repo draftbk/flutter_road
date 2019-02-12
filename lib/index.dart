@@ -29,12 +29,11 @@ class IndexPage extends StatelessWidget {
                     Container(
                         margin: EdgeInsets.only(top: 10.0),
                         child:  Text(
-                            title,style: TextStyle(fontSize: 18)
+                            title,style: TextStyle(fontSize: 16)
                         )
                     )
                   ],
                 )
-
             )
         )
     );

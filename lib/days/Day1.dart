@@ -88,29 +88,34 @@ class Day1State extends State<Day1> {
           //TextAlign.left左对齐，TextAlign.right右对齐，TextAlign.center居中对齐，TextAlign.justfy两端对齐
           Padding(
             padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+
             child: Text(
               '文本居中',
               textAlign: TextAlign.center,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
-            child: Text(
-              '文本左',
-              textAlign: TextAlign.left,
-            ),
-          ),
-
 
           Padding(
             padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
             child: Text(
-              '设置文字装饰',
+              '给文字加下划线',
               style: TextStyle(
                 //none无文字装饰，lineThrough删除线，overline文字上面显示线，underline文字下面显示线
                   decoration: TextDecoration.underline,
                   decorationColor: Colors.red,
                   decorationStyle: TextDecorationStyle.wavy
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+            child: Text(
+              '文字实现划去效果',
+              style: TextStyle(
+                //none无文字装饰，lineThrough删除线，overline文字上面显示线，underline文字下面显示线
+                  decoration: TextDecoration.lineThrough,
+                  decorationColor: Colors.black,
+                  decorationStyle: TextDecorationStyle.solid
               ),
             ),
           ),
@@ -196,7 +201,7 @@ class Day1State extends State<Day1> {
     return Scaffold(
         backgroundColor: Colors.grey[200],
         appBar: CupertinoNavigationBar(
-          middle: Text('A StopWatch'),
+          middle: Text('Text'),
         ),
         body: Column(
           children: [

@@ -4,9 +4,16 @@
 
 ## 前期准备篇
 
-[Dart 入门笔记](https://www.jianshu.com/p/1bd4674c0760)
+- [Dart 入门笔记](https://www.jianshu.com/p/1bd4674c0760)
+- 环境配置(待写)
 
 
 ## 控件布局篇
 
-### Text
+
+### Text 控件
+
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_text.gif)
+
+
+

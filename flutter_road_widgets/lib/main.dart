@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_road/index.dart';
+import 'package:flutter_road_widgets/index.dart';
 
 void main() => runApp(new MyApp());
 

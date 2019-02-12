@@ -1,4 +1,4 @@
-package com.draftbk.flutterroad;
+package com.draftbk.flutterroadwidgets;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

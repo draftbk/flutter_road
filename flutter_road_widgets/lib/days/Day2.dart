@@ -7,7 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:core';
-import 'package:flutter_road/utils/carousel.dart';
+import 'package:flutter_road_widgets/utils/carousel.dart';
 import 'dart:convert';
 
 class Day2 extends StatelessWidget {

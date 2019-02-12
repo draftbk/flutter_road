@@ -1,6 +1,6 @@
 /**
  * Day 1
- * A stop watch
+ * Text
  */
 
 
@@ -203,11 +203,8 @@ class Day1State extends State<Day1> {
         appBar: CupertinoNavigationBar(
           middle: Text('Text'),
         ),
-        body: Column(
-          children: [
-            textSection,
-          ],
-        ),
+        body: textSection,
+
     );
   }
 }

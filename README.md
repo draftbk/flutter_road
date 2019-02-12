@@ -12,7 +12,8 @@
 
 
 ### Text 控件
-
+- [Text 控件](https://www.jianshu.com/p/23308cadce2a)
+- 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_text.gif)
 
 

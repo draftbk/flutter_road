@@ -154,14 +154,14 @@ class Day2State extends State<Day2> {
                   new RadioListTile<int>(
                     title: const Text('B'),
                     value: 2,
-                    activeColor: Colors.green,
+                    activeColor: Colors.yellow,
                     groupValue: groupValue2,
                     onChanged: (int e)=>updateGroupValue2(e),
                   ),
                   new RadioListTile<int>(
                     title: const Text('C'),
                     value: 3,
-                    activeColor: Colors.red,
+                    activeColor: Colors.green,
                     groupValue: groupValue2,
                     onChanged: (int e)=>updateGroupValue2(e),
                   ),

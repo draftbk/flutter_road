@@ -17,7 +17,7 @@
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_text.gif)
 
 
-### Text 控件
+### Button 控件
 [Flutter 学习之路 - Button 控件](https://www.jianshu.com/p/db7e2f47fbda)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_button.gif)

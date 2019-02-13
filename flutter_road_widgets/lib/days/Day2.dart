@@ -175,7 +175,7 @@ class Day2State extends State<Day2> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: CupertinoNavigationBar(
-        middle: Text('Text'),
+        middle: Text('Button'),
       ),
       body: buttonSection,
 

@@ -16,6 +16,8 @@ class Day2 extends StatefulWidget {
 
 class Day2State extends State<Day2> {
   var mCurrentValue = 1.0;
+  var isChecked=false;
+  int groupValue1,groupValue2;
   @override
   Widget build(BuildContext context) {
 
@@ -42,26 +44,27 @@ class Day2State extends State<Day2> {
             ),
           ),
 
-          //文字超出屏幕之后的处理方式  TextOverflow.clip剪裁   TextOverflow.fade 渐隐  TextOverflow.ellipsis省略号
+          //FloatingActionButton 多个FloatingActionButton的时候会报错，要加 heroTag: null
           Padding(
-            padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+            padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 // FloatingActionButton
                 new FloatingActionButton(
                     onPressed: () {print('button click');},
-                    tooltip: 'Increment',
+                    foregroundColor: Colors.white,
                     backgroundColor: Color(0xFFf19670),
                     child: new Icon(Icons.add),
+                    heroTag: null,
                 ),
-
                 // FloatingActionButton
                 new FloatingActionButton(
                     onPressed: () {print('button click');},
-                    tooltip: 'Increment',
+                    foregroundColor: Colors.white,
                     backgroundColor: Color(0xFFf19670),
                     child: new Text("文字"),
+                    heroTag: null,
                 ),
               ],
             ),
@@ -76,13 +79,12 @@ class Day2State extends State<Day2> {
               },
               foregroundColor: Colors.white,
               backgroundColor: Colors.amber,
-              //如果不手动设置icon和text颜色,则默认使用foregroundColor颜色
               icon: new Icon(Icons.flag,color: Colors.red,),
               label: new Text('FloatingActionButton.extended', maxLines: 1),
             )
           ),
 
-          // FloatingActionButton.extended
+          // Slider
           Padding(
               padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
               child: new Slider(
@@ -98,8 +100,74 @@ class Day2State extends State<Day2> {
               )
           ),
 
+          // Checkbox
+          Padding(
+              padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
+              child: new Checkbox(
+                  value: isChecked,
+                  onChanged: (bool){
+                    setState(() {
+                      isChecked=bool;
+                    });
+              }, activeColor: Colors.blue,
+              )
+          ),
 
+          // Radio
+          Padding(
+              padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
+              child: new ButtonBar(//ButtonBar：水平排列按钮
+                alignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  //value和groupValue值一样的话,则按钮选中
+                  new Radio(value: 1,
+                      groupValue: groupValue1,
+                      onChanged: (int e) => updateGroupValue(e)),
+                  new Radio(value: 2,
+                      groupValue: groupValue1,
+                      onChanged: (int e) => updateGroupValue(e)),
+                  new Radio(value: 3,
+                      groupValue: groupValue1,
+                      onChanged: (int e) => updateGroupValue(e)),
+                  new Radio(value: 4,
+                      groupValue: groupValue1,
+                      onChanged: (int e) => updateGroupValue(e)),
+                  //value 值为 null 则表示按钮不可用
+                  new Radio(value: null, groupValue: null, onChanged: null)
+                ],
+              )
+          ),
 
+          // Radio
+          Padding(
+              padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
+              child: new Column(//ButtonBar：水平排列按钮
+                children: <Widget>[
+                  //value和groupValue值一样的话,则按钮选中
+                  new RadioListTile<int>(
+                      title: const Text('A'),
+                      value: 1,
+                      activeColor: Colors.red,
+                      groupValue: groupValue2,
+                      onChanged: (int e)=>updateGroupValue2(e),
+                  ),
+                  new RadioListTile<int>(
+                    title: const Text('B'),
+                    value: 2,
+                    activeColor: Colors.green,
+                    groupValue: groupValue2,
+                    onChanged: (int e)=>updateGroupValue2(e),
+                  ),
+                  new RadioListTile<int>(
+                    title: const Text('C'),
+                    value: 3,
+                    activeColor: Colors.red,
+                    groupValue: groupValue2,
+                    onChanged: (int e)=>updateGroupValue2(e),
+                  ),
+                ],
+              )
+          ),
         ],
       ),
     );
@@ -112,5 +180,17 @@ class Day2State extends State<Day2> {
       body: buttonSection,
 
     );
+  }
+  ///更新 groupValue1, 当Radio的value==groupValue 时候,则按钮被选中
+  void updateGroupValue(int e){
+    setState(() {
+      groupValue1=e;
+    });
+  }
+  ///更新 groupValue2, 当Radio的value==groupValue 时候,则按钮被选中
+  void updateGroupValue2(int e){
+    setState(() {
+      groupValue2=e;
+    });
   }
 }

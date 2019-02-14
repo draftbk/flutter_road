@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_road_widgets/days/Day1.dart';
 import 'package:flutter_road_widgets/days/Day2.dart';
+import 'package:flutter_road_widgets/days/Day3.dart';
 
 void main() => runApp(new IndexPage());
 
@@ -51,7 +52,7 @@ class IndexPage extends StatelessWidget {
         children: <Widget>[
           menuIcons(context, Icon(FontAwesomeIcons.font, size: 50.0, color: Color(0xFFc94a53)), 'Text' ,Day1()),
           menuIcons(context, Icon(FontAwesomeIcons.toggleOff, size: 50.0, color: Color(0xFFe16552)), 'Button' ,Day2()),
-          menuIcons(context, Icon(FontAwesomeIcons.image, size: 50.0, color: Color(0xFFf19670)), 'Image' ,Day1()),
+          menuIcons(context, Icon(FontAwesomeIcons.image, size: 50.0, color: Color(0xFFf19670)), 'Image' ,Day3()),
           menuIcons(context, Icon(FontAwesomeIcons.thList, size: 50.0, color: Color(0xFFe2975d)), 'ListView' ,Day1()),
           menuIcons(context, Icon(FontAwesomeIcons.thLarge, size: 50.0, color: Color(0xFFe9d78e)), 'GridView' ,Day1()),
           menuIcons(context, Icon(FontAwesomeIcons.clone, size: 50.0, color: Color(0xFFe4bf80)), 'Dialog' ,Day1()),

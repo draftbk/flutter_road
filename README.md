@@ -10,7 +10,8 @@
 
 ## 控件布局篇
 
-<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_text.gif" height="600em" /> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_button.gif" height="600em" /> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_image.gif" height="600em" /> 
+<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_text.gif" width="32%" height="32%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_button.gif" width="32%" height="32%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_image.gif" width="32%" height="32%">
+
 
 ### Text 控件
 [Flutter 学习之路 - Text 控件](https://www.jianshu.com/p/23308cadce2a)

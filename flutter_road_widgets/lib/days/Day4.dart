@@ -6,8 +6,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:transparent_image/transparent_image.dart';
 import 'dart:core';
 
 
@@ -20,6 +18,7 @@ class Day4 extends StatefulWidget {
 
 
 class Day4State extends State<Day4> {
+  List<int> items=[];
 
   @override
   Widget build(BuildContext context) {
@@ -54,31 +53,60 @@ class Day4State extends State<Day4> {
       ),
     );
 
-    Widget basicListSection = Container(
-      margin: EdgeInsets.symmetric(vertical: 20.0),
-      height: 200.0,
-      child: ListView(
-        children: <Widget>[
-          ListTile(
-            leading: Icon(Icons.map),
-            title: Text('Map'),
-            onTap: (){
-              final snackBar = SnackBar(content: Text('Yay! A SnackBar!'));
-              // Find the Scaffold in the Widget tree and use it to show a SnackBar
-              Scaffold.of(context).showSnackBar(snackBar);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.photo_album),
-            title: Text('Album'),
-          ),
-          ListTile(
-            leading: Icon(Icons.phone),
-            title: Text('Phone'),
-          ),
-        ],
-      )
+    Widget basicListSection = Builder(
+        builder: (context) => Container(
+            margin: EdgeInsets.symmetric(vertical: 5.0),
+            height: 200.0,
+            child: ListView(
+              children: <Widget>[
+                ListTile(
+                  leading: Icon(Icons.map),
+                  title: Text('Map'),
+                  onTap: (){
+                    _showToast(context,"Map");
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.photo_album),
+                  title: Text('Album'),
+                  onTap: (){
+                    _showToast(context,"Album");
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.phone),
+                  title: Text('Phone'),
+                  onTap: (){
+                    _showToast(context,"Phone");
+                  },
+                ),
+              ],
+            )
+        )
     );
+
+    Widget buttonSection = Padding(
+      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+      child: new RaisedButton(
+        onPressed: () {_addListDate();},
+        child: new Text("Add New Item"),
+      ),
+    );
+
+    Widget dynamicSection = Container(
+        margin: EdgeInsets.symmetric(vertical: 5.0),
+        height: 200.0,
+        child: ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (context,index){
+              return ListTile(
+                  leading: Icon(Icons.send),
+                  title: new Text("NewItem $index"));
+            }
+        )
+    );
+
+
 
     return Scaffold(
       backgroundColor: Colors.grey[200],
@@ -89,9 +117,25 @@ class Day4State extends State<Day4> {
         children:<Widget>[
           horizontalListSection,
           basicListSection,
+          buttonSection,
+          dynamicSection
         ]
-
       )
     );
+  }
+  void _showToast(BuildContext context,String text) {
+    final scaffold = Scaffold.of(context);
+    scaffold.showSnackBar(
+      SnackBar(
+        content: Text(text),
+      ),
+    );
+  }
+
+
+  void _addListDate(){
+    setState(() {
+      items.add(1);
+    });
   }
 }

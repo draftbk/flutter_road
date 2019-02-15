@@ -20,11 +20,10 @@ class Day3 extends StatefulWidget {
 
 class Day3State extends State<Day3> {
 
-  int groupValue1,groupValue2;
   @override
   Widget build(BuildContext context) {
 
-    Widget buttonSection = Container(
+    Widget imageSection = Container(
       padding: const EdgeInsets.all(15.0),
       width: 1000,
       color: Colors.white,
@@ -90,7 +89,7 @@ class Day3State extends State<Day3> {
       appBar: CupertinoNavigationBar(
         middle: Text('Image'),
       ),
-      body: buttonSection,
+      body: imageSection,
 
     );
   }

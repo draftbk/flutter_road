@@ -12,7 +12,7 @@
 5. CachedNetworkImage（记得在 pubspec.yaml 加入 cached_network_image）
 
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/flutter_load_image.gif)
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_image.gif)
 
 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day3.dart)
 

@@ -1,24 +1,105 @@
 ## Flutter Image 控件
-> 实验一些常用的 Image 功能 --- [代码Github地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day3.dart)
+> 实验一些常用的 Image 功能
 
-### Image 实验
+### Image 试验
 
-实验了 Image 常用的一些功能
-
-1. 根据网络链接加载图片 
-2. 从网络链接加载 **GIF** (这个很棒有没有)
-3. 本地加载图片
-4. FadeInImage（记得在 pubspec.yaml 加入 cached_network_image）
-5. CachedNetworkImage（记得在 pubspec.yaml 加入 cached_network_image）
-
+Flutter 学习之路第三次试验，试验了有关于 Image 常用的一些功能，包括图片本地加载，图片和 GIF 的网络加载，FadeIn
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_image.gif)
 
 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day3.dart)
 
+##### 加载本地图片
+
+在 lib 同级目录下创建文件夹 images, 并且在 pubspec.yaml 文件中添加如下几行。
+
+```
+flutter:
+  assets:
+    - images/flutter.png
+```
+
+用 AssetImage 获取图片
+
+```
+// Image from asserts
+ Padding(
+   padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
+   child: new Image(
+       image:new AssetImage('images/flutter.png'),
+       width: 50,
+       height: 50,
+   ),
+ ),
+```
+
+##### 根据网络链接加载图片 
+
+```
+// Image from internet
+Padding(
+  padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+  child: Image.network(
+    'https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/day3/flutter.png?raw=true',
+     scale: 4,
+  ),
+),
+```
+
+##### 从网络链接加载 **GIF** 
+
+可以很方便地加载 GIF 是个很棒的功能了，找了个 Google 动图哈哈
+
+```
+ // Gif from internet
+ Padding(
+   padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+   child:Image.network(
+     'https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/day3/google.gif?raw=true',
+     scale: 4,
+   ),
+ ),
+```
+
+##### FadeInImage（图片渐现呈现）
+
+在 pubspec.yaml 加入 cached\_network\_image
+
+```
+ // FadeInImage
+ Padding(
+   padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+   child: FadeInImage.memoryNetwork(
+       width: 180,
+       height: 180,
+       placeholder: kTransparentImage,
+       image: 'https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/day3/flutter.png?raw=true',
+   ),
+ ),
+```
+
+##### CachedNetworkImage （从网络加载图片并缓存在内存中）
+
+在 pubspec.yaml 加入 cached\_network\_image
+
+```
+// CachedNetworkImage
+Padding(
+  padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+  child: CachedNetworkImage(
+    width: 100,
+    height: 100,
+    placeholder: CircularProgressIndicator(),
+    imageUrl:
+    'https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/day3/flutter.png?raw=true',
+  ),
+),
+```
+
+
 #### 遇到的问题
 
-感觉对于控件，各个参数主要是看官网文档，然后自己改改, 所以还是记录一下遇到的问题。
+所以还是记录一些自己遇到的问题。
 
 ##### 问题一: 当我使用如下代码加载 Gif 以及 png 时，不能显示
 

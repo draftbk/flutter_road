@@ -38,7 +38,7 @@ class Day3State extends State<Day3> {
                 height: 50,
             ),
           ),
-          // Image from internet
+          // Image from asserts
           Padding(
             padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
             child: Image.network(

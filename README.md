@@ -26,6 +26,8 @@
 
 ### Image 
 
+[Flutter 学习之路 - Image 控件](https://juejin.im/entry/5c6895d151882562e5443685/detail)
+
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_image.gif)
 
 ### ListView  

@@ -1,6 +1,6 @@
 /**
- * Day 2
- * Button
+ * Day 3
+ * Image
  */
 
 

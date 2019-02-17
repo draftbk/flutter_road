@@ -11,7 +11,7 @@ Flutter 学习之路第五次实验，实验了 Gridview 常用的一些功能�
 
 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day5.dart)
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/flutter_road_gridview.gif)
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_gridview.gif)
 
 
 #### 设置 gridview 各个属性设置（间距，每行个数，长宽比）

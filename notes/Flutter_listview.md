@@ -12,7 +12,7 @@
 
 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day4.dart)
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/flutter_road_listview.gif)
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_listview.gif)
 
 
 #### 遇到的问题

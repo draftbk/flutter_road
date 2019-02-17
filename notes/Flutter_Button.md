@@ -1,5 +1,5 @@
 ## Flutter Button 控件
-> 实验一些常用的 Button 功能 --- [代码Github地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day2.dart)
+> 实验一些常用的 Button 功能 （[代码Github地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day2.dart)）
 
 ### Button 实验
 

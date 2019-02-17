@@ -5,11 +5,13 @@
 
 实验了 Button 常用的一些功能
 
-1. RaisedButton
-2. FlatButton
-3. FloatingActionButton
-4. FloatingActionButton.extended
-5. Slider
+- RaisedButton
+- FlatButton
+- 悬浮按钮 （FloatingActionButton）
+- 宽的悬浮按钮 （FloatingActionButton.extended）
+- 滚动条（Slider）
+- 复选框（Checkbox）
+- 选项按钮 （Radio Buttons）
 
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_button.gif)
@@ -31,7 +33,7 @@ Padding(
 ),
 ```
 
-##### FlatButton
+#### FlatButton
 
 和 RaisedButton 一样用 child 的方式添加文字，用 onPressed 方法监听按钮行为。
 FlatButton 本身是透明且没有突出的，所以设置了 color 使它更明显
@@ -137,9 +139,10 @@ Padding(
 ),
 ```
 
-####  复选框（Checkbox）
+#### 选项按钮 （Radio Buttons）
 
 这里如果把新建的 Radio 的值设置为 null, 这个 Radio 就是不可选的，会显示一个灰色的状态。
+
 ```
 // Radio
 Padding(

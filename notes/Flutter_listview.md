@@ -1,4 +1,4 @@
-## Flutter Listview
+## Flutter 学习之路 - Listview
 > 实验一些常用的 List 功能 --- [代码Github地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day4.dart)
 
 ### Listview 实验
@@ -10,10 +10,10 @@
 3. 给Listview item 加上点击事件
 4. Listview 动态更新
 
+[代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day4.dart)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/flutter_road_listview.gif)
 
-[代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day4.dart)
 
 #### 遇到的问题
 

@@ -1,4 +1,4 @@
-## Flutter Button 控件
+## Flutter 学习之路 - Button 控件
 > 实验一些常用的 Button 功能 （[代码Github地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day2.dart)）
 
 ### Button 实验
@@ -13,10 +13,11 @@
 - 复选框（Checkbox）
 - 选项按钮 （Radio Buttons）
 
+[代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day2.dart)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_button.gif)
 
-[代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day2.dart)
+
 
 #### RaisedButton
 

@@ -26,7 +26,7 @@
 
 ### Image 
 
-[Flutter 学习之路 - Image 控件](https://juejin.im/entry/5c6895d151882562e5443685/detail)
+[Flutter 学习之路 - Image 控件](https://www.jianshu.com/p/9838a54e4f0c)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_image.gif)
 

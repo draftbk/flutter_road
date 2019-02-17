@@ -15,7 +15,7 @@ Text 实验了 Text 常用的一些功能
 8. 文字点击事件
 9. 文字拼接
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_text.gif)
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_text.gif)
 
 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day1.dart)
 

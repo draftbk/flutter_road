@@ -16,20 +16,20 @@
 ### Text 
 [Flutter 学习之路 - Text 控件](https://www.jianshu.com/p/23308cadce2a)
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_text.gif)
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_text.gif)
 
 
 ### Button 
 [Flutter 学习之路 - Button 控件](https://www.jianshu.com/p/db7e2f47fbda)
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_button.gif)
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_button.gif)
 
 ### Image 
 
 [Flutter 学习之路 - Image 控件](https://juejin.im/entry/5c6895d151882562e5443685/detail)
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_image.gif)
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_image.gif)
 
 ### ListView  
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_listview.gif)
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_listview.gif)

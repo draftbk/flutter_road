@@ -11,7 +11,7 @@
 4. Listview 动态更新
 
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/flutter_load_listview.gif)
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/flutter_road_listview.gif)
 
 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day4.dart)
 

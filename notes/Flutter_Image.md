@@ -5,7 +5,7 @@
 
 Flutter 学习之路第三次试验，试验了有关于 Image 常用的一些功能，包括图片本地加载，图片和 GIF 的网络加载，图片渐现呈现，从网络加载图片并缓存在内存中。
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_load_image.gif)
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_image.gif)
 
 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day3.dart)
 

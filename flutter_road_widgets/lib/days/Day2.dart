@@ -38,9 +38,9 @@ class Day2State extends State<Day2> {
           Padding(
             padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
             child: new FlatButton(
-                onPressed: () {print('button click');},
-                child: new Text("FlatButton"),
-                color: Color(0xFFe16552),
+              onPressed: () {print('button click');},
+              child: new Text("FlatButton"),
+              color: Color(0xFFe16552),
             ),
           ),
 

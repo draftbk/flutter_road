@@ -4,7 +4,7 @@
 
 ## 前期准备篇
 
-- [Dart 入门笔记](https://www.jianshu.com/p/1bd4674c0760)
+- [Dart 入门笔记](https://github.com/draftbk/flutter_road/blob/master/notes/Dart_Intro.md)
 - 环境配置(待写)
 
 
@@ -14,26 +14,28 @@
 
 
 ### Text 
-[Flutter 学习之路 - Text 控件](https://www.jianshu.com/p/23308cadce2a)
+[Flutter 学习之路 - Text 控件](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Text.md)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_text.gif)
 
 
 ### Button 
-[Flutter 学习之路 - Button 控件](https://www.jianshu.com/p/db7e2f47fbda)
+[Flutter 学习之路 - Button 控件](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Button.md)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_button.gif)
 
 ### Image 
 
-[Flutter 学习之路 - Image 控件](https://www.jianshu.com/p/9838a54e4f0c)
+[Flutter 学习之路 - Image 控件](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Image.md)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_image.gif)
 
 ### ListView  
+[Flutter 学习之路 - ListView 试验](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Listview.md)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_listview.gif)
 
 ### GridView  
+[Flutter 学习之路 - Gridview 试验](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Gridview.md)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_gridview.gif)

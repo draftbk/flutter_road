@@ -23,18 +23,16 @@ class Day10State extends State<Day10> {
   void thenCatch(){
     mytext="Started";
     setMyTextState(mytext);
-    // then 用来说明 2 second 后做什么
+    // then 用来说明 1 second 后做什么
     Future.delayed(Duration(seconds: 1)).then((_){
       // 当运行完成
       mytext = mytext + "\n" + "Completed Task1";
       setMyTextState(mytext);
     }).catchError((e){
       // 当运行失败
-//        print('failed: ${e.toString()}');
       mytext=mytext+"\n"+'failed: ${e.toString()}';
       setMyTextState(mytext);
     });
-
   }
 
   void setMyTextState(String newText){
@@ -103,16 +101,16 @@ class Day10State extends State<Day10> {
   @override
   Widget build(BuildContext context) {
 
-    Widget networkingSection =  Container(
+    Widget asyncSection =  Container(
       margin: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
-      height: 500.0,
+      height: 400.0,
       child: new Center(
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new RaisedButton(
               onPressed: thenCatch,
-              child: new Text('Then'),
+              child: new Text('Future.Then'),
             ),
             new RaisedButton(
               onPressed: asyncNoAwait,
@@ -129,8 +127,21 @@ class Day10State extends State<Day10> {
           ],
         ),
       ),
+    );
+    Widget consoleSection =  Container(
+       margin: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
+       height: 300.0,
+       width: double.infinity,
+       child: Text(
+         mytext,
+         style: TextStyle(
+           fontSize: 18,
+         ),
+       ),
 
     );
+
+
 
 
     return Scaffold(
@@ -140,14 +151,13 @@ class Day10State extends State<Day10> {
       ),
       body: Column(
         children:<Widget>[
-          networkingSection,
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
-            child: Text(
-            mytext,
-            maxLines: 6,
-            ),
-          ),
+          asyncSection,
+  new Container(
+  color: Color(0xFFe16552),
+  height: 2,
+  width: double.infinity,
+  ),
+          consoleSection,
         ]
       )
     );

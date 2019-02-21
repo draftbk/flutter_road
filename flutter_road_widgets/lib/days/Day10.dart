@@ -8,9 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:core';
 
-// for networks
-import 'dart:convert';
-import 'dart:io';
 
 
 
@@ -22,40 +19,90 @@ class Day10 extends StatefulWidget {
 
 
 class Day10State extends State<Day10> {
-  var _ipAddress = 'Unknown';
+  String mytext="Console";
+  void thenCatch(){
+    mytext="Started";
+    setMyTextState(mytext);
+    // then 用来说明 2 second 后做什么
+    Future.delayed(Duration(seconds: 1)).then((_){
+      // 当运行完成
+      mytext = mytext + "\n" + "Completed Task1";
+      setMyTextState(mytext);
+    }).catchError((e){
+      // 当运行失败
+//        print('failed: ${e.toString()}');
+      mytext=mytext+"\n"+'failed: ${e.toString()}';
+      setMyTextState(mytext);
+    });
 
-  _getIPAddress() async {
-    var url = 'https://httpbin.org/ip';
-    var httpClient = new HttpClient();
+  }
 
-    String result;
-    try {
-      var request = await httpClient.getUrl(Uri.parse(url));
-      var response = await request.close();
-      if (response.statusCode == HttpStatus.OK) {
-        var my_json = await response.transform(utf8.decoder).join();
-        var data = json.decode(my_json);
-        result = data['origin'];
-      } else {
-        result =
-        'Error getting IP address:\nHttp status ${response.statusCode}';
-      }
-    } catch (exception) {
-      result = 'Failed getting IP address';
-    }
-
-    // If the widget was removed from the tree while the message was in flight,
-    // we want to discard the reply rather than calling setState to update our
-    // non-existent appearance.
-    if (!mounted) return;
-
+  void setMyTextState(String newText){
     setState(() {
-      _ipAddress = result;
+      mytext=newText;
     });
   }
+
+  Future<void> asyncAwait() async{
+    mytext="Started";
+    setMyTextState(mytext);
+    try{
+      // 这里没有 .then, 要加 await, await 是说在 await 完成前别往下执行
+      await Future.delayed(Duration(seconds: 1));
+      mytext=mytext+"\n"+"Completed Task1";
+      setMyTextState(mytext);
+      await Future.delayed(Duration(seconds: 1));
+      mytext=mytext+"\n"+"Completed Task2";
+      setMyTextState(mytext);
+    }catch(e){
+      print('failed: ${e.toString()}');
+    }
+  }
+
+  Future<void> asyncNoAwait() async{
+    mytext="Started";
+    setMyTextState(mytext);
+    try{
+      // 这里没有 .then, 要加 await, await 是说在 await 完成前别往下执行
+      Future.delayed(Duration(seconds: 2));
+      mytext=mytext+"\n"+"Completed Task1";
+      setMyTextState(mytext);
+      Future.delayed(Duration(seconds: 1));
+      mytext=mytext+"\n"+"Completed Task2";
+      setMyTextState(mytext);
+    }catch(e){
+      print('failed: ${e.toString()}');
+    }
+  }
+
+  Future<void> asyncAwaitWithTask() async{
+    mytext="Started";
+    setMyTextState(mytext);
+    try{
+      // 这里没有 .then, 要加 await, await 是说在 await 完成前别往下执行
+      await Future.delayed(Duration(seconds: 1));
+      mytext=mytext+"\n"+"Completed Task1";
+      setMyTextState(mytext);
+      task2();
+      mytext=mytext+"\n"+"Completed Task3";
+      setMyTextState(mytext);
+      mytext=mytext+"\n"+"Completed Task4";
+      setMyTextState(mytext);
+    }catch(e){
+      print('failed: ${e.toString()}');
+    }
+  }
+
+  void task2() async{
+    await Future.delayed(Duration(seconds: 1));
+    mytext=mytext+"\n"+"Completed Task2";
+    setMyTextState(mytext);
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    var spacer = new SizedBox(height: 32.0);
+
     Widget networkingSection =  Container(
       margin: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
       height: 500.0,
@@ -63,12 +110,21 @@ class Day10State extends State<Day10> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text('Your current IP address is:'),
-            new Text('$_ipAddress.'),
-            spacer,
             new RaisedButton(
-              onPressed: _getIPAddress,
-              child: new Text('Get IP address'),
+              onPressed: thenCatch,
+              child: new Text('Then'),
+            ),
+            new RaisedButton(
+              onPressed: asyncNoAwait,
+              child: new Text('Async no await'),
+            ),
+            new RaisedButton(
+              onPressed: asyncAwait,
+              child: new Text('Async await'),
+            ),
+            new RaisedButton(
+              onPressed: asyncAwaitWithTask,
+              child: new Text('Wait With Other Task'),
             ),
           ],
         ),
@@ -85,6 +141,13 @@ class Day10State extends State<Day10> {
       body: Column(
         children:<Widget>[
           networkingSection,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+            child: Text(
+            mytext,
+            maxLines: 6,
+            ),
+          ),
         ]
       )
     );

@@ -24,6 +24,6 @@
 
 ## 线程网络篇
 
-- [Flutter 学习之路 - Gridview 试验](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_async.md)
+- [Flutter 学习之路 - 异步任务](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Async.md)
 
 <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_async.gif" width="26%" height="26%"> 

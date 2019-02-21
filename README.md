@@ -18,12 +18,12 @@
 
 
 
-<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_text.gif" width="26%" height="26%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_button.gif" width="26%" height="26%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_image.gif" width="26%" height="26%">
+<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_text.gif" width="28%" height="28%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_button.gif" width="28%" height="28%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_image.gif" width="28%" height="28%">
 
-<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_listview.gif" width="26%" height="26%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_gridview.gif" width="26%" height="26%">
+<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_listview.gif" width="28%" height="28%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_gridview.gif" width="28%" height="28%">
 
 ## 线程网络篇
 
 - [Flutter 学习之路 - 异步任务](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Async.md)
 
-<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_async.gif" width="26%" height="26%"> 
+<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_async.gif" width="28%" height="28%"> 

@@ -111,18 +111,22 @@ class Day10State extends State<Day10> {
             new RaisedButton(
               onPressed: thenCatch,
               child: new Text('Future.Then'),
+              color: Color(0xFFe16552),
             ),
             new RaisedButton(
               onPressed: asyncNoAwait,
               child: new Text('Async no await'),
+              color: Color(0xFFe16552),
             ),
             new RaisedButton(
               onPressed: asyncAwait,
               child: new Text('Async await'),
+              color: Color(0xFFe16552),
             ),
             new RaisedButton(
               onPressed: asyncAwaitWithTask,
               child: new Text('Wait With Other Task'),
+              color: Color(0xFFe16552),
             ),
           ],
         ),

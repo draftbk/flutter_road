@@ -3,18 +3,18 @@
 
 ### Fultter 异步任务试验
 
-Flutter 在很多地方需要用到异步的任务，例如，调用RESTAPI
+Flutter 在很多地方需要用到异步的任务，例如，加载网络数据，任务延迟执行等，所以异步任务是不可避免的问题。本次试验主要试验了下面几种情况：
 
-- 用 Future, then 的方式实现任务延迟执行
-- 用 async 和 await 任务延迟执行
-- 测试调用 async 方法时，方法下方代码会怎样执行
+- 用 Future, then 实现任务延迟执行
+- 用 async 和 await 实现任务延迟执行
+- 测试调用 async 方法时，代码的执行顺序问题
 
 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day10.dart)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_async.gif)
 
 
-#### 用 Future, then 的方式实现任务延迟执行
+#### 用 Future, then 实现任务延迟执行
 
 Future 可以用来执行未来要执行的方法，例如下面代码，先输出 ”Started“, 调用 Future 以后过了一秒钟，再输出 ”Completed Task1“。
 
@@ -35,7 +35,7 @@ void thenCatch(){
 }
 ```
 
-#### 用 async 和 await 任务延迟执行
+#### 用 async 和 await 实现任务延迟执行
 
 await 也是 Flutter 中很好的一种执行异步任务的方法。
 
@@ -81,7 +81,7 @@ Completed Task2
 --- 1 second ---
 ```
 
-#### 测试调用 async 方法时，方法下方代码会怎样执行
+#### 测试调用 async 方法时，代码的执行顺序问题
 
 现在，下面这段代码如果执行 asyncAwaitWithTask()方法，会怎么样输出呢？
 

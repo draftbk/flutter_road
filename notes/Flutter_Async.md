@@ -41,7 +41,7 @@ await 也是 Flutter 中很好的一种执行异步任务的方法。
 
 但是要使用await，必须在有async标记的函数中运行，否则这个await会报错。
 
-下面这个方法会怎么输出呢：
+下面是一个加了 await 的方法，它的输出是怎么样呢?
 
 ```
 Future<void> asyncAwait() async{
@@ -72,7 +72,7 @@ Completed Task2
 ```
 先输出 ”Start“, 然后过一秒，输出 ”Completed Task1“ 再过一秒输出 ”Completed Task2“ 。
 
-如果把方法里的 await 去掉会发生什么呢，答案是，时间不会停止，下面两个任务 Task1, Task2 会马上执行，不会等 Future.delayed 完成。
+如果把方法里的 await 去掉，看看会发生什么呢，结果是，Task1 和 Task2不会等待Future.delayed 完成，会直接执行。
 
 ```
 Started
@@ -83,7 +83,9 @@ Completed Task2
 
 #### 测试调用 async 方法时，代码的执行顺序问题
 
-现在，下面这段代码如果执行 asyncAwaitWithTask()方法，会怎么样输出呢？
+那如果说，代码依次是 Task1, Task2, Task3, Task4, Task2 是一个异步的方法，Task3 , Task4 需要等待 Task2 完成吗？
+
+代码如下：
 
 ```
 Future<void> asyncAwaitWithTask() async{
@@ -110,7 +112,7 @@ void task2() async{
   setMyTextState(mytext);
 }
 ```
-答案是, Task3, Task4 会先于 Task2 执行，我放在前面的 GIF 图就是运行的这个场景。
+答案是, Task3, Task4 会先于 Task2 执行，最前面的 GIF 图就是在运行的这个场景。
 
 ```
 Started

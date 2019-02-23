@@ -27,3 +27,9 @@
 - [Flutter 学习之路 - 异步任务](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Async.md)
 
 <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_async.gif" width="28%" height="28%"> 
+
+## 微信群
+
+哈哈建了个微信群，目前三个人，欢迎加入一起入坑 Flutter 呀！
+
+<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/wechat.jpg" width="50%" height="50%"> 

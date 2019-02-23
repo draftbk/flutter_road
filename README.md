@@ -7,7 +7,6 @@
 - [Dart 入门笔记](https://github.com/draftbk/flutter_road/blob/master/notes/Dart_Intro.md)
 - 环境配置(待写)
 
-
 ## 控件布局篇
 
 - [Flutter 学习之路 - Text 控件](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Text.md)

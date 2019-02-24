@@ -29,6 +29,6 @@
 
 ## 微信群
 
-哈哈建了个微信群，目前四个人，欢迎加入一起入坑 Flutter 呀！
+欢迎加入一起入坑 Flutter 呀！
 
 <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/wechat.jpg" width="50%" height="50%"> 

@@ -6,6 +6,7 @@ import 'package:flutter_road_widgets/days/Day2.dart';
 import 'package:flutter_road_widgets/days/Day3.dart';
 import 'package:flutter_road_widgets/days/Day4.dart';
 import 'package:flutter_road_widgets/days/Day5.dart';
+import 'package:flutter_road_widgets/days/Day6.dart';
 import 'package:flutter_road_widgets/days/Day10'
     '.dart';
 import 'package:flutter_road_widgets/days/Day11.dart';
@@ -61,7 +62,7 @@ class IndexPage extends StatelessWidget {
           menuIcons(context, Icon(FontAwesomeIcons.image, size: 50.0, color: Color(0xFFf19670)), 'Image' ,Day3()),
           menuIcons(context, Icon(FontAwesomeIcons.thList, size: 50.0, color: Color(0xFFe2975d)), 'ListView' ,Day4()),
           menuIcons(context, Icon(FontAwesomeIcons.thLarge, size: 50.0, color: Color(0xFFe9d78e)), 'GridView' ,Day5()),
-          menuIcons(context, Icon(FontAwesomeIcons.clone, size: 50.0, color: Color(0xFFe4bf80)), 'Dialog' ,Day1()),
+          menuIcons(context, Icon(FontAwesomeIcons.clone, size: 50.0, color: Color(0xFFe4bf80)), 'Dialog' ,Day6()),
           menuIcons(context, Icon(FontAwesomeIcons.spinner, size: 50.0, color: Color(0xFFe2975d)), 'pending' ,Day1()),
           menuIcons(context, Icon(FontAwesomeIcons.spinner, size: 50.0, color: Color(0xFFe2975d)), 'pending' ,Day1()),
           menuIcons(context, Icon(FontAwesomeIcons.spinner, size: 50.0, color: Color(0xFFe2975d)), 'pending' ,Day1()),

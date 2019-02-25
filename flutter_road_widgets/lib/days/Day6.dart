@@ -19,11 +19,7 @@ class Day6 extends StatefulWidget {
 
 class Day6State extends State<Day6> {
 
-  void task2() {
-     print("1");
-     Navigator.of(context).pop();
 
-  }
   Future<void> _showAlert(BuildContext context, String message) async {
     return showDialog(
         context: context,
@@ -47,25 +43,29 @@ class Day6State extends State<Day6> {
             child: new Center(
                 child:Column(
                   children: <Widget>[
-                    new RaisedButton(
-                      onPressed: task2,
+                    new ButtonTheme(
+                      minWidth: 200,
+                      child: RaisedButton(
+                      onPressed: ()=>_showAlert(context, 'Do you like flutter, I do!'),
                       child: new Text('Future.Then'),
                       color: Color(0xFFe16552),
+                      ),
                     ),
-                    new RaisedButton(
+                    new ButtonTheme(
+                      minWidth: 200,
+                      child: RaisedButton(
                       onPressed: ()=>_showAlert(context, 'Do you like flutter, I do!'),
                       child: new Text('AlertDialog'),
                       color: Color(0xFFe16552),
+                      ),
                     ),
-                    new RaisedButton(
-                      onPressed: task2,
+                    new ButtonTheme(
+                      minWidth: 200,
+                      child: RaisedButton(
+                      onPressed: ()=>_showAlert(context, 'Do you like flutter, I do!'),
                       child: new Text('SimpleDialog'),
                       color: Color(0xFFe16552),
-                    ),
-                    new RaisedButton(
-                      onPressed: task2,
-                      child: new Text('Wait With Other Task'),
-                      color: Color(0xFFe16552),
+                      ),
                     ),
                   ],
                 )

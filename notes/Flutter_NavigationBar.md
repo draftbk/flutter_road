@@ -4,109 +4,113 @@
 ### NavigationBar 实验
 
 
-- 底部导航栏(实现，改变个数，切换页面时候的动画效果)
-- 顶部导航栏(实现，改变个数)
+- 底部导航栏 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day7.dart)
+- 顶部导航栏 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/subpage/TopBarPage.dart)
 
-[代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day7.dart)
+
+
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_navigationbar.gif)
 
 
-#### 底部导航栏(实现，改变个数，切换页面时候的动画效果)
+#### 底部导航栏（Part1）
 
+底部导航用 PageView 和 BottomNavigationBar 完成。大段的代码就不贴了，在 [Github 代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day7.dart) 就能找到。
 
-```
-child: GridView.count(
-  // 每行有几个子控件
-  crossAxisCount: 2,
-  // 水平子Widget之间间距
-  crossAxisSpacing: 10.0,
-  // 设置上下间隙
-  mainAxisSpacing: 8.0,
-  // 子Widget宽高比例
-  childAspectRatio: 2.0,
-  children: List.generate(listNumber, (index) {
-    return gridItem(context, index);
-  }),
-),
-```
+##### BottomNavigationBar
 
-#### 自定义 item, 以及 gridview item 点击事件
-
-这两个一起写是因为，实际上，item 点击是建立在自定义 item 上的，能自定义 item 了就能点击了。
-
-自定义一个 gridItem 的 Widget
+BottomNavigationBar 在 items 里面添加想要的 BottomNavigationBarItem，然后 currentIndex 代表当前 item, page 在 PageView 的 onPageChanged()更改。
 
 ```
-Widget gridItem (BuildContext context, int _index) {
-  int index=_index%words.length;
-  return  Container(
-    alignment: Alignment.center,
-    child: GestureDetector(
-      onTap: () {
-        setState(() {
-          String temp=words[index];
-          words[index]=translations[index];
-          translations[index]=temp;
-        });
-      },
-      child: Text(
-        words[index],
-        style: TextStyle(
-          fontSize: 28,
-          color: Colors.white,
-        ),
-      ),
-    ), 
-      color:myColor,
-  );
+ bottomNavigationBar: new BottomNavigationBar(items: [
+   new BottomNavigationBarItem(
+       icon: new Icon(FontAwesomeIcons.font),
+       title: new Text("Text"),
+       backgroundColor: Colors.grey
+   ),
+   //更多 BottomNavigationBarItem
+ ],
+     onTap: onTap,
+     currentIndex: page
+ ),
+```
+
+##### 改变页面切换时候的动画效果
+看 onTap 方法，其中改变 curve 可以改变页面切换时候的动画效果，可以点进 curves,dart 里面看看，有挺多种方法，尝试了一下，还是 Curves.ease 是一种最让人舒服的动画。 然后 duration 可以设置动画时间，可以尝试设置成 1000，你会发现切换页面，嗯，很慢。
+
+```
+ void onTap(int index) {
+  pageController.animateToPage(
+      index,
+      // 设置页面转换效果的时间
+      duration: const Duration(milliseconds: 300),
+      // 设置转换时的效果
+      curve: Curves.ease);
 }
 ```
 
-用 List.generate 加载自定义的 gridItem
+##### PageView
+
+然后是 PageView：用把子页面放到 children 里面(这里Page1() 什么的是为了简化篇幅，实际上没这个 class)，然后用一个 pageController 来监听页面切换，可以上面的代码里就有 pageController 来控制页面和转换效果。用 onPageChanged 监听页面切换，执行页面切换以后的要执行的操作。
 
 ```
- Widget gridViewSection = Builder(
-     builder: (context) => Container(
-         margin: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
-         height: 600.0,
-         child: GridView.count(
-           // 每行有几个子控件
-           crossAxisCount: 2,
-           // 水平子Widget之间间距
-           crossAxisSpacing: 10.0,
-           // 水平子Widget之间间距
-           mainAxisSpacing: 8.0,
-           // 子Widget宽高比例
-           childAspectRatio: 2.0,
-           children: List.generate(listNumber, (index) {
-             return gridItem(context, index);
-           }),
-         ),
-     )
- );
+ body: new PageView(
+     children: [
+       new Page1(),
+       new Page2(),
+       new Page3(),
+     ],
+     controller: pageController,
+     onPageChanged: onPageChanged,
+ ),
 ```
-
-#### 动态添加 gridview 的 item
-
-这个和之前写 listview 的动态添加套路差不多，就是改变下面这个 listNumber 的值，就可以完成动态添加.
+用 onPageChanged 监听页面切换，切换后设置当前 page 值。
 
 ```
- children: List.generate(listNumber, (index) {
-   return gridItem(context, index);
- }),
+  void onPageChanged(int page) {
+    setState(() {
+      this.page = page;
+    });
+  }
 ```
-同样，别忘了用 setState
+##### 设置起始子页面：
 
 ```
-onTap: () {
-  setState(() {
-    String temp=words[index];
-    words[index]=translations[index];
-    translations[index]=temp;
-  });
-},
+  @override
+  void initState() {
+    super.initState();
+    // 设置初始化page
+    pageController = new PageController(initialPage: this.page);
+  }
 ```
+
+#### 顶部导航栏（Part2）
+
+用 AppBar 实现，用 title 设置顶部 bar 的文字，bottom用 TabBar 设置导航栏的图标，然后界面上在 TabBarView 里面完成不同的 subpage。
+```
+new AppBar(
+   title: Text('TopBarPage'),
+   bottom: new TabBar(
+     tabs: <Widget>[
+       new Tab(
+         icon: new Icon(FontAwesomeIcons.google),
+       ),
+       new Tab(
+         icon: new Icon(FontAwesomeIcons.facebook),
+       ),
+     ],
+     controller: _tabController,
+   ),
+ ),
+ body: new TabBarView(
+   controller: _tabController,
+   children: <Widget>[
+     new Center(child: new Text('Google',style: TextStyle(fontSize: 20,),)),
+     new Center(child: new Text('Facebook',style: TextStyle(fontSize: 20,),)),
+   ],
+ ),
+```
+
 
 ### Flutter 学习之路 Github 地址
 

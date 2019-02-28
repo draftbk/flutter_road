@@ -7,6 +7,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:core';
+import 'package:flutter_road_widgets/days/Day1.dart';
+import 'package:flutter_road_widgets/days/Day2.dart';
+import 'package:flutter_road_widgets/days/Day3.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 
@@ -17,47 +21,6 @@ class Day7 extends StatefulWidget {
 }
 
 
-class PageSection1 extends StatelessWidget {
-  String myContent;
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return new Scaffold(
-      body: new Center(
-        child:
-        new Text(myContent),
-      ),
-    );
-  }
-
-}
-class PageSection2 extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-
-    return new Scaffold(
-      body: new Center(
-        child:
-        new Text("分类"),
-      ),
-    );
-  }
-}
-class PageSection3 extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return new Scaffold(
-      body: new Center(
-        child:
-        new Text("分类"),
-      ),
-    );
-  }
-}
 
 class Day7State extends State<Day7> {
 
@@ -74,27 +37,30 @@ class Day7State extends State<Day7> {
       backgroundColor: Colors.grey,
 
       body: new PageView(
-
           children: [
-            new PageSection1(),
-            new PageSection2(),
-            new PageSection3(),
+            new Day1(),
+            new Day2(),
+            new Day3(),
           ],
-
           controller: pageController,
           onPageChanged: onPageChanged
       ),
 
       bottomNavigationBar: new BottomNavigationBar(items: [
         new BottomNavigationBarItem(
-            icon: new Icon(Icons.laptop_chromebook),
-            title: new Text("主页"),
+            icon: new Icon(FontAwesomeIcons.font),
+            title: new Text("Text"),
             backgroundColor: Colors.grey
         ),
         new BottomNavigationBarItem(
-            icon: new Icon(Icons.list), title: new Text("分类"),backgroundColor: Colors.grey),
+            icon: new Icon(FontAwesomeIcons.toggleOff),
+            title: new Text("Button"),
+            backgroundColor: Colors.grey),
         new BottomNavigationBarItem(
-            icon: new Icon(Icons.local_grocery_store), title: new Text("购物车")),
+            icon: new Icon(FontAwesomeIcons.image),
+            title: new Text("Image"),
+            backgroundColor: Colors.grey,
+        ),
       ],
           onTap: onTap,
           currentIndex: page

@@ -50,7 +50,7 @@ class Day7State extends State<Day7> {
             ),
           ],
           controller: pageController,
-          onPageChanged: onPageChanged
+          onPageChanged: onPageChanged,
       ),
 
       bottomNavigationBar: new BottomNavigationBar(items: [

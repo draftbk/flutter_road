@@ -7,8 +7,8 @@ import 'package:flutter_road_widgets/days/Day3.dart';
 import 'package:flutter_road_widgets/days/Day4.dart';
 import 'package:flutter_road_widgets/days/Day5.dart';
 import 'package:flutter_road_widgets/days/Day6.dart';
-import 'package:flutter_road_widgets/days/Day10'
-    '.dart';
+import 'package:flutter_road_widgets/days/Day7.dart';
+import 'package:flutter_road_widgets/days/Day10.dart';
 import 'package:flutter_road_widgets/days/Day11.dart';
 
 void main() => runApp(new IndexPage());

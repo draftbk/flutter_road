@@ -8,6 +8,8 @@ import 'package:flutter_road_widgets/days/Day4.dart';
 import 'package:flutter_road_widgets/days/Day5.dart';
 import 'package:flutter_road_widgets/days/Day6.dart';
 import 'package:flutter_road_widgets/days/Day7.dart';
+import 'package:flutter_road_widgets/days/Day8.dart';
+
 import 'package:flutter_road_widgets/days/Day10.dart';
 import 'package:flutter_road_widgets/days/Day11.dart';
 
@@ -63,8 +65,8 @@ class IndexPage extends StatelessWidget {
           menuIcons(context, Icon(FontAwesomeIcons.thList, size: 50.0, color: Color(0xFFe2975d)), 'ListView' ,Day4()),
           menuIcons(context, Icon(FontAwesomeIcons.thLarge, size: 50.0, color: Color(0xFFe9d78e)), 'GridView' ,Day5()),
           menuIcons(context, Icon(FontAwesomeIcons.clone, size: 50.0, color: Color(0xFFe4bf80)), 'Dialog' ,Day6()),
-          menuIcons(context, Icon(FontAwesomeIcons.columns, size: 50.0, color: Color(0xFFe2975d)), 'BottomBar' ,Day7()),
-          menuIcons(context, Icon(FontAwesomeIcons.spinner, size: 50.0, color: Color(0xFFe2975d)), 'pending' ,Day1()),
+          menuIcons(context, Icon(FontAwesomeIcons.columns, size: 50.0, color: Color(0xFFe2975d)), 'NavigationBar' ,Day7()),
+          menuIcons(context, Icon(FontAwesomeIcons.handPointUp, size: 50.0, color: Color(0xFFe2975d)), 'TopBar' ,Day8()),
           menuIcons(context, Icon(FontAwesomeIcons.spinner, size: 50.0, color: Color(0xFFe2975d)), 'pending' ,Day1()),
           menuIcons(context, Icon(FontAwesomeIcons.exchangeAlt, size: 50.0, color: Color(0xFFe2975d)), 'Async' ,Day10()),
           menuIcons(context, Icon(FontAwesomeIcons.networkWired, size: 50.0, color: Color(0xFFe2975d)), 'Networking' ,Day11()),

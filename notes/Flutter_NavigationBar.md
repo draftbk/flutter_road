@@ -87,6 +87,7 @@ BottomNavigationBar 在 items 里面添加想要的 BottomNavigationBarItem，�
 #### 顶部导航栏（Part2）
 
 用 AppBar 实现，用 title 设置顶部 bar 的文字，bottom用 TabBar 设置导航栏的图标，然后界面上在 TabBarView 里面完成不同的 subpage。
+
 ```
 new AppBar(
    title: Text('TopBarPage'),
@@ -111,8 +112,15 @@ new AppBar(
  ),
 ```
 
+#### 其他
+
+刚刚在油管上浏览，看到 Flutter 又出新视频，上面有用 Cupertino Package 实现 iOS 风格的导航栏，有兴趣也可以看一下。
+
+[https://www.youtube.com/watch?v=3PdUaidHc-E](https://www.youtube.com/watch?v=3PdUaidHc-E)
 
 ### Flutter 学习之路 Github 地址
+
+这是项目的 GitHub 地址，正在持续更新，欢迎 Star 呀！╮(￣▽￣)╭
 
 [https://github.com/draftbk/flutter_road](https://github.com/draftbk/flutter_road)
 

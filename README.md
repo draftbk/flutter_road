@@ -15,7 +15,7 @@
 - [Flutter 学习之路 - ListView](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Listview.md)
 - [Flutter 学习之路 - Gridview](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Gridview.md)
 - Flutter 学习之路 - Dialog 试验(待)
-- [Flutter 学习之路 - 导航栏](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Gridview.md)
+- [Flutter 学习之路 - 导航栏](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_NavigationBar.md)
 
 
 <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_text.gif" width="28%" height="28%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_button.gif" width="28%" height="28%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_image.gif" width="28%" height="28%">

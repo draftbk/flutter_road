@@ -164,9 +164,9 @@ result = data['city_id'];
 ```
 
 
-
-
 #### Flutter 学习之路 Github 地址
+
+这是项目的 GitHub 地址，正在持续更新，欢迎 Star 呀！╮(￣▽￣)╭
 
 [https://github.com/draftbk/flutter_road](https://github.com/draftbk/flutter_road)
 

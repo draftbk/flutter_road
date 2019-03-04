@@ -167,7 +167,6 @@ class Day11State extends State<Day11> {
     try {
       var client = http.Client();
       var response = await client.post(postUrl, body: {"ip": searchIp});
-
       if (response.statusCode == HttpStatus.OK) {
         result = response.body;
         var data = json.decode(result);

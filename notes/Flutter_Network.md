@@ -13,10 +13,21 @@ Flutter 现在常用的网络方式有如下三种：
 
 这里试验了三种方法的 GET,POST 方法，以及 JSON 的解析。
 
-#### HttpClient 
+[代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day10.dart)
+
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_network.gif)
+
+#### 用 HttpClient 实现
 HttpClient 是 Dart 原生的网络请求，flutter 中文网上的 cookbook 是用这个来实现的
 
 不需要在 pubspec.yaml 添加依赖
+
+引入：
+
+```
+import 'dart:convert';
+import 'dart:io';
+```
 
 ##### GET 请求
 
@@ -41,18 +52,25 @@ HttpClient 是 Dart 原生的网络请求，flutter 中文网上的 cookbook 是
 
 ##### POST 请求
 
-网上找没有，然后对应着官网 API 尝试用了下面这个方法还是失败，不知道为什么，存疑，希望有人能有解答：
+网上找没有，然后对应着官网 API 尝试用了下面这个方法还是失败， 不清楚为什么，如果有同学找到方法解决求告知一下！
 
 ```
   Uri uri=new Uri(path:postUrl,queryParameters: {"ip": searchIp} );
   var request = await httpClient.postUrl(uri);
   var response = await request.close();
 ```
+其他两个方法 POST 都可以，umm, 而且功能还更全，所以还是用另外两种方法吧！
 
-#### http
+#### 用 http 实现
 flutter 官网上的 cookbook 是用这个来实现的
 
 不需要在 pubspec.yaml 添加依赖
+
+引入：
+
+```
+import 'package:http/http.dart' as http;
+```
 
 ##### GET 请求
 
@@ -95,7 +113,7 @@ flutter 官网上的 cookbook 是用这个来实现的
   }
 ```
 
-#### dio
+#### 用 dio 实现
 
 dio是Flutter中文网开源的一个强大的Dart Http请求库，支持Restful API、FormData、拦截器、请求取消、Cookie管理、文件上传/下载、超时等
 
@@ -106,6 +124,12 @@ dependencies:
   flutter:
     sdk: flutter
   dio: any
+```
+
+引入：
+
+```
+import 'package:dio/dio.dart';
 ```
 
 
@@ -160,7 +184,7 @@ dio 还有好多方法，可以看看这个链接：
 
 ```
 var data = json.decode(result);
-result = data['city_id'];
+result = data['origin'];
 ```
 
 

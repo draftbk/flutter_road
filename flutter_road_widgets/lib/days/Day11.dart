@@ -25,8 +25,8 @@ class Day11 extends StatefulWidget {
 class Day11State extends State<Day11> {
   String mytext = "Console";
   double buttonWidth = 200;
-  String getUrl="httpbin.org/ip";
-  String postUrl="ip.taobao.com/service/getIpInfo.php";
+  String getUrl="https://httpbin.org/ip";
+  String postUrl="http://ip.taobao.com/service/getIpInfo.php";
   String searchIp='117.89.35.58';
   void setMyTextState(String newText) {
     setState(() {
@@ -111,10 +111,10 @@ class Day11State extends State<Day11> {
         result = response.body;
       } else {
         result =
-        'Error getting IP address:\nHttp status ${response.statusCode}';
+        'Error getting reslut:\nHttp status ${response.statusCode}';
       }
     } catch (exception) {
-      result = 'Failed getting IP address';
+      result = 'Failed getting reslut';
     }
     mytext = mytext + "\n" + result;
     setMyTextState(mytext);
@@ -151,26 +151,27 @@ class Day11State extends State<Day11> {
         result = response.data.toString();
       } else {
         result =
-        'Error getting IP address:\nHttp status ${response.statusCode}';
+        'Error getting reslut:\nHttp status ${response.statusCode}';
       }
     } catch (exception) {
-      result = 'Failed getting IP address';
+      result = 'Failed getting reslut';
     }
     mytext = mytext + "\n" + result;
     setMyTextState(mytext);
   }
 
   void Json_Parser()async {
-    mytext = "JSON Parser Start";
+    mytext="JSON Parser Start";
     setMyTextState(mytext);
+    var httpClient = new HttpClient();
     String result;
     try {
-      var client = http.Client();
-      var response = await client.post(postUrl, body: {"ip": searchIp});
+      var request = await httpClient.getUrl(Uri.parse(getUrl));
+      var response = await request.close();
       if (response.statusCode == HttpStatus.OK) {
-        result = response.body;
+        result = await response.transform(utf8.decoder).join();
         var data = json.decode(result);
-        result = data['city_id'];
+        result = data['origin'];
       } else {
         result =
         'Error getting IP address:\nHttp status ${response.statusCode}';
@@ -236,7 +237,7 @@ class Day11State extends State<Day11> {
               minWidth: buttonWidth,
               child: RaisedButton(
                 onPressed: Json_Parser,
-                child: new Text('Json Parser'),
+                child: new Text('JSON Parser'),
                 color: Color(0xFFe16552),
               ),
             ),
@@ -259,7 +260,7 @@ class Day11State extends State<Day11> {
     return Scaffold(
         backgroundColor: Colors.grey[200],
         appBar: CupertinoNavigationBar(
-          middle: Text('Async'),
+          middle: Text('Network'),
         ),
         body: Column(children: <Widget>[
           asyncSection,

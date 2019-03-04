@@ -69,7 +69,7 @@ class IndexPage extends StatelessWidget {
           menuIcons(context, Icon(FontAwesomeIcons.handPointUp, size: 50.0, color: Color(0xFFe2975d)), 'TopBar' ,Day8()),
           menuIcons(context, Icon(FontAwesomeIcons.spinner, size: 50.0, color: Color(0xFFe2975d)), 'pending' ,Day1()),
           menuIcons(context, Icon(FontAwesomeIcons.exchangeAlt, size: 50.0, color: Color(0xFFe2975d)), 'Async' ,Day10()),
-          menuIcons(context, Icon(FontAwesomeIcons.networkWired, size: 50.0, color: Color(0xFFe2975d)), 'Networking' ,Day11()),
+          menuIcons(context, Icon(FontAwesomeIcons.networkWired, size: 50.0, color: Color(0xFFe2975d)), 'Network' ,Day11()),
           menuIcons(context, Icon(FontAwesomeIcons.weixin, size: 50.0, color: Color(0xFFe2975d)), 'Wechat' ,Day11()),
         ],
       ),

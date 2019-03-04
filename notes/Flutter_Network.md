@@ -1,5 +1,5 @@
 ## Flutter 学习之路 - 网络入门
-> 实验一些 Flutter 的网络方面的功能 （[代码Github地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day10.dart)）
+> 实验一些 Flutter 的网络方面的功能 （[代码Github地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day11.dart)）
 
 ### 概述
 
@@ -13,7 +13,7 @@ Flutter 现在常用的网络方式有如下三种：
 
 这里试验了三种方法的 GET,POST 方法，以及 JSON 的解析。
 
-[代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day10.dart)
+[代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day11.dart)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_network.gif)
 

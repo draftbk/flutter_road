@@ -22,6 +22,7 @@ dependencies:
   font_awesome_flutter: any
   transparent_image: any
   cached_network_image: any
+  dio: any
 
 dev_dependencies:
   flutter_test:

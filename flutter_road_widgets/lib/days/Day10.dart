@@ -20,6 +20,7 @@ class Day10 extends StatefulWidget {
 
 class Day10State extends State<Day10> {
   String mytext="Console";
+
   void thenCatch(){
     mytext="Started";
     setMyTextState(mytext);
@@ -146,8 +147,6 @@ class Day10State extends State<Day10> {
     );
 
 
-
-
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: CupertinoNavigationBar(
@@ -156,11 +155,11 @@ class Day10State extends State<Day10> {
       body: Column(
         children:<Widget>[
           asyncSection,
-  new Container(
-  color: Color(0xFFe16552),
-  height: 2,
-  width: double.infinity,
-  ),
+          new Container(
+          color: Color(0xFFe16552),
+          height: 2,
+          width: double.infinity,
+          ),
           consoleSection,
         ]
       )

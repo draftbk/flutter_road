@@ -1,47 +1,168 @@
-## Flutter 学习之路 - 网络
+## Flutter 学习之路 - 网络入门
 > 实验一些 Flutter 的网络方面的功能 （[代码Github地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day10.dart)）
 
-### Button 实验
+### 概述
 
-实验了 Button 常用的一些功能
+一开始在想标题要叫什么呢，想想网络是个很复杂的东西，这里就实验了最基本的，开发比较常用的 Get Post, 就叫网络入门吧哈哈。
 
-- RaisedButton
-- FlatButton
-- 悬浮按钮 （FloatingActionButton）
-- 宽的悬浮按钮 （FloatingActionButton.extended）
-- 滚动条（Slider）
-- 复选框（Checkbox）
-- 选项按钮 （Radio Buttons）
+Flutter 现在常用的网络方式有如下三种：
 
-[代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day10.dart)
+- HttpClient
+- http
+- dio
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_button.gif)
+这里试验了三种方法的 GET,POST 方法，以及 JSON 的解析。
 
+#### HttpClient 
+HttpClient 是 Dart 原生的网络请求，flutter 中文网上的 cookbook 是用这个来实现的
 
+不需要在 pubspec.yaml 添加依赖
 
-#### POST 请求
+##### GET 请求
 
-先添加一些库
+```Dart
+  void HttpClient_Get() async {
+    var httpClient = new HttpClient();
+    String result;
+    try {
+      var request = await httpClient.getUrl(Uri.parse(getUrl));
+      var response = await request.close();
+      if (response.statusCode == HttpStatus.OK) {
+        result = await response.transform(utf8.decoder).join();
+      } else {
+        result =
+            'Error getting IP address:\nHttp status ${response.statusCode}';
+      }
+    } catch (exception) {
+      result = 'Failed getting IP address';
+    }
+  }
+```
+
+##### POST 请求
+
+网上找没有，然后对应着官网 API 尝试用了下面这个方法还是失败，不知道为什么，存疑，希望有人能有解答：
 
 ```
-import 'dart:convert';
-import 'dart:io';
-```
-学习的 Flutter 中文网上面的例子，只不过代码有一些小错要改，应该是版本改了，现在调用 utf8, json 都是需要小写。
-
-```
-var json = await response.transform(UTF8.decoder).join();
-var data = JSON.decode(json);
-改写成：
-var my_json = await response.transform(utf8.decoder).join();
-var data = json.decode(my_json);
+  Uri uri=new Uri(path:postUrl,queryParameters: {"ip": searchIp} );
+  var request = await httpClient.postUrl(uri);
+  var response = await request.close();
 ```
 
-对 _getIPAddress() 方法加上一些注释和分析：
+#### http
+flutter 官网上的 cookbook 是用这个来实现的
+
+不需要在 pubspec.yaml 添加依赖
+
+##### GET 请求
+
+```
+  void http_Get() async {
+    String result;
+    try {
+      var response = await http.get(getUrl);
+      if (response.statusCode == HttpStatus.OK) {
+        result = response.body;
+      } else {
+        result =
+            'Error getting IP address:\nHttp status ${response.statusCode}';
+      }
+    } catch (exception) {
+      result = 'Failed getting IP address';
+    }
+  }
+```
+
+##### POST 请求
+
+```
+  void http_Post() async {
+    String result;
+    try {
+
+      var client = http.Client();
+      var response = await client.post(postUrl, body: {"ip": searchIp});
+
+      if (response.statusCode == HttpStatus.OK) {
+        result = response.body;
+      } else {
+        result =
+        'Error getting IP address:\nHttp status ${response.statusCode}';
+      }
+    } catch (exception) {
+      result = 'Failed getting IP address';
+    }
+  }
+```
+
+#### dio
+
+dio是Flutter中文网开源的一个强大的Dart Http请求库，支持Restful API、FormData、拦截器、请求取消、Cookie管理、文件上传/下载、超时等
+
+需要在 pubspec.yaml 添加依赖 **dio: any**
+
+```
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: any
+```
 
 
+##### GET 请求
 
-#### 遇到的问题
+```
+  void dio_Get() async {
+    String result;
+    try {
+      Dio dio = new Dio();
+      var response = await dio.get(getUrl);
+      if (response.statusCode == HttpStatus.OK) {
+        result = response.data.toString();
+      } else {
+        result =
+            'Error getting IP address:\nHttp status ${response.statusCode}';
+      }
+    } catch (exception) {
+      result = 'Failed getting IP address';
+    }
+  }
+```
+
+##### POST 请求
+
+```
+  void dio_Post() async {
+    String result="";
+    try {
+      var dio = new Dio();
+      var response = await dio.post(postUrl, queryParameters:{"ip": searchIp});
+      if (response.statusCode == HttpStatus.OK) {
+        result = response.data.toString();
+      } else {
+        result =
+        'Error getting IP address:\nHttp status ${response.statusCode}';
+      }
+    } catch (exception) {
+      result = 'Failed getting IP address';
+    }
+  }
+```
+
+##### 其他
+
+dio 还有好多方法，可以看看这个链接：
+[https://pub.dartlang.org/packages/dio](https://pub.dartlang.org/packages/dio)
+
+#### JSON 解析
+
+就直接用下面的方法就可以解析了，真的很方便
+
+```
+var data = json.decode(result);
+result = data['city_id'];
+```
+
 
 
 

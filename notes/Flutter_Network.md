@@ -13,6 +13,8 @@ Flutter 现在常用的网络方式有如下三种：
 
 这里试验了三种方法的 GET,POST 方法，以及 JSON 的解析。
 
+实现通过 ip 获取 ip 所在地信息等方法。
+
 
 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day11.dart)
 
@@ -23,7 +25,11 @@ Flutter 现在常用的网络方式有如下三种：
 ```Dart
 String getUrl="https://httpbin.org/ip";
 String postUrl="http://ip.taobao.com/service/getIpInfo.php";
+String searchIp='117.89.35.58'; 
 ```
+分别是获取 ip(虽然我觉得它获取的ip 很奇怪)，以及通过 ip 获取 ip 的所在地以及其他信息。 
+
+为了方便，第二个url 要用的 ip 设定为一个固定值。
 
 ### 用 HttpClient 实现
 HttpClient 是 Dart 原生的网络请求，flutter 中文网上的 cookbook 是用这个来实现的

@@ -13,23 +13,31 @@ Flutter 现在常用的网络方式有如下三种：
 
 这里试验了三种方法的 GET,POST 方法，以及 JSON 的解析。
 
+
 [代码地址](https://github.com/draftbk/flutter_road/blob/master/flutter_road_widgets/lib/days/Day11.dart)
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_network.gif)
 
-#### 用 HttpClient 实现
+本次试验 url:
+
+```Dart
+String getUrl="https://httpbin.org/ip";
+String postUrl="http://ip.taobao.com/service/getIpInfo.php";
+```
+
+### 用 HttpClient 实现
 HttpClient 是 Dart 原生的网络请求，flutter 中文网上的 cookbook 是用这个来实现的
 
 不需要在 pubspec.yaml 添加依赖
 
 引入：
 
-```
+```Dart
 import 'dart:convert';
 import 'dart:io';
 ```
 
-##### GET 请求
+#### GET 请求
 
 ```Dart
   void HttpClient_Get() async {
@@ -50,31 +58,31 @@ import 'dart:io';
   }
 ```
 
-##### POST 请求
+#### POST 请求
 
 网上找没有，然后对应着官网 API 尝试用了下面这个方法还是失败， 不清楚为什么，如果有同学找到方法解决求告知一下！
 
-```
+```Dart
   Uri uri=new Uri(path:postUrl,queryParameters: {"ip": searchIp} );
   var request = await httpClient.postUrl(uri);
   var response = await request.close();
 ```
 其他两个方法 POST 都可以，umm, 而且功能还更全，所以还是用另外两种方法吧！
 
-#### 用 http 实现
+### 用 http 实现
 flutter 官网上的 cookbook 是用这个来实现的
 
 不需要在 pubspec.yaml 添加依赖
 
 引入：
 
-```
+```Dart
 import 'package:http/http.dart' as http;
 ```
 
-##### GET 请求
+#### GET 请求
 
-```
+```Dart
   void http_Get() async {
     String result;
     try {
@@ -91,9 +99,9 @@ import 'package:http/http.dart' as http;
   }
 ```
 
-##### POST 请求
+#### POST 请求
 
-```
+```Dart
   void http_Post() async {
     String result;
     try {
@@ -113,13 +121,13 @@ import 'package:http/http.dart' as http;
   }
 ```
 
-#### 用 dio 实现
+### 用 dio 实现
 
 dio是Flutter中文网开源的一个强大的Dart Http请求库，支持Restful API、FormData、拦截器、请求取消、Cookie管理、文件上传/下载、超时等
 
 需要在 pubspec.yaml 添加依赖 **dio: any**
 
-```
+```Dart
 dependencies:
   flutter:
     sdk: flutter
@@ -128,14 +136,14 @@ dependencies:
 
 引入：
 
-```
+```Dart
 import 'package:dio/dio.dart';
 ```
 
 
-##### GET 请求
+#### GET 请求
 
-```
+```Dart
   void dio_Get() async {
     String result;
     try {
@@ -153,9 +161,9 @@ import 'package:dio/dio.dart';
   }
 ```
 
-##### POST 请求
+#### POST 请求
 
-```
+```Dart
   void dio_Post() async {
     String result="";
     try {
@@ -173,7 +181,7 @@ import 'package:dio/dio.dart';
   }
 ```
 
-##### 其他
+### 其他
 
 dio 还有好多方法，可以看看这个链接：
 [https://pub.dartlang.org/packages/dio](https://pub.dartlang.org/packages/dio)
@@ -182,7 +190,7 @@ dio 还有好多方法，可以看看这个链接：
 
 就直接用下面的方法就可以解析了，真的很方便
 
-```
+```Dart
 var data = json.decode(result);
 result = data['origin'];
 ```

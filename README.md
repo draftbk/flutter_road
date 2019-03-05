@@ -29,8 +29,8 @@
 - [Flutter 学习之路 - 异步任务](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Async.md)
 - [Flutter 学习之路 - 网络入门](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Network.md)
 
-<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_async.gif" width="28%" height="28%"> 
-<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_network.gif" width="28%" height="28%"> 
+<img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_async.gif" width="28%" height="28%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_network.gif" width="28%" height="28%"> 
+
 ## 微信群
 
 欢迎加入一起入坑 Flutter ！

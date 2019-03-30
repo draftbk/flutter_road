@@ -3,8 +3,9 @@
 
 ### 关于 Flutter 的测试
 
-前几天去纽约的 Google 参加 Flutter 的聚会，听到大神在台上讲 Flutter 的测试，想到自己该学习了哈哈哈。
+前几天去纽约的 Google 参加 Flutter 的聚会，听到在 Google Material Flutter 团队的 MH Johnson 在台上讲 Flutter 的测试，想到自己该学习了哈哈哈。
 
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/test/flutter_meetup_test.png)
 
 一般来说，经过良好测试的应用应该有很多 unit tests 和 widget test，通过代码覆盖率([code coverage](https://en.wikipedia.org/wiki/Code_coverage))进行跟踪，以及需要足够的集成测试来涵盖所有重要的使用场景。下面的表格，总结了在不同类型测试的特点，方便在选择的时候进行权衡：
 
@@ -15,13 +16,7 @@
 | 依赖 | Few | More | Lots | 
 | 执行速度 | Quick | Slower | Slowest | 
 
-[https://www.cnblogs.com/gzdaijie/p/5222191.html](https://www.cnblogs.com/gzdaijie/p/5222191.html)
-
-
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_navigationbar.gif)
-
-
-
+那么这三个重要程度是怎么样呢？
 
 #### 单元测试
 
@@ -134,6 +129,8 @@ flutter test test/counter_test.dart
 其他运行方式可以在这里看：[link](https://flutter.dev/docs/cookbook/testing/unit/introduction)
 
 #### Widget 测试
+
+
 
 #### 集成测试
 

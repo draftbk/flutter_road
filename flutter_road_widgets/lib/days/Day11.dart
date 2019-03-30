@@ -1,6 +1,6 @@
 /**
- * Day 5
- * GridView
+ * Day 11
+ * Network
  */
 
 import 'package:flutter/material.dart';

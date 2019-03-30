@@ -16,7 +16,7 @@
 
 那么这三个重要程度是怎么样呢？这个图可以供参考：
 
-![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/test/flutter_meetup_test.png)
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/test/flutter_meetup_test.jpg)
 
 #### 单元测试
 

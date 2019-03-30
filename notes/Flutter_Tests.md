@@ -14,7 +14,7 @@
 | 依赖 | Few | More | Lots | 
 | 执行速度 | Quick | Slower | Slowest | 
 
-那么这三个重要程度是怎么样呢？这个图可以供参考：
+那么这三个重要程度是怎么样呢？这个图可以参考一下：
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/test/flutter_meetup_test.jpg)
 
@@ -129,6 +129,22 @@ flutter test test/counter_test.dart
 其他运行方式可以在这里看：[link](https://flutter.dev/docs/cookbook/testing/unit/introduction)
 
 #### Widget 测试
+> 参考文章（主要就是按这个学的,英文 ok 可以直接看官网）：[link](https://flutter.dev/docs/cookbook/testing/widget/introduction)
+
+##### 第一步：添加 flutter_test 包
+
+为什么要用这个包，不用前面的 **test** 包呢，因为 **flutter_test** 包有下面这些功能：
+
+- 等等再补充
+
+
+```
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+```
+
+##### 第二步：创建一个要测试的 Widget
 
 
 

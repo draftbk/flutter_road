@@ -72,7 +72,7 @@ class Day3State extends State<Day3> {
             child: CachedNetworkImage(
               width: 100,
               height: 100,
-              placeholder: CircularProgressIndicator(),
+//              placeholder: CircularProgressIndicator(), // 一开始能用，后来可能CachedNetworkImage没有 placeholder了就先注释掉
               imageUrl:
               'https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/day3/flutter.png?raw=true',
             ),

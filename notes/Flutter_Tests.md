@@ -18,6 +18,7 @@
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/test/flutter_meetup_test.jpg)
 
+
 #### 单元测试
 
 > 参考文章（主要就是按这个学习翻译的,英文 ok 可以直接看官网）：[link](https://flutter.dev/docs/cookbook/testing/unit/introduction)
@@ -204,13 +205,21 @@ void main() {
 
 ##### 第四步：运行测试
 
-在 Android Studio 里邮件代码文件点运行就能运行了：
+发现在 Android Studio 里邮件代码文件点运行就能运行了：
 
 ![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/test/widget_test_result.png)
 
 ##### 补充
 
-第三步中的 **findsOneWidget** 是一个 **Matcher**，还有一些其他的 **Matcher** 可以用：
+[1] 第三步中的 WidgetTester 除了 pumpWidget 还提供了其他的方法，在使用 StatefulWidget 或者 animations 的时候可以用到：
+
+- tester.pump()：[文档链接](https://api.flutter.dev/flutter/flutter_test/TestWidgetsFlutterBinding/pump.html)
+
+- tester.pumpAndSettle()：[文档链接](https://api.flutter.dev/flutter/flutter_test/WidgetTester/pumpAndSettle.html)
+
+
+
+[2] 第三步中的 **findsOneWidget** 是一个 **Matcher**，还有一些其他的 **Matcher** 可以用：
 
 ```
 findsOneWidget 只有一个对应的 Widget
@@ -226,8 +235,13 @@ expect(find.text('Save'), findsNWidgets(2));
 
 
 #### 集成测试
+> 参考文章（主要就是按这个学习翻译的,英文 ok 可以直接看官网）：[link](https://flutter.dev/docs/cookbook/testing/integration/introduction)
 
+单元测试 和 Widget 测试可以用于测试单独的 class, function, 和 Widget。当要测试各部分一起运行或者测试一个 application 在真实设备上运行的表现的时候就要用到**集成测试**。
 
+### 代码地址
+
+[https://github.com/draftbk/flutter_road/tree/master/flutter_road_test](https://github.com/draftbk/flutter_road/tree/master/flutter_road_test)
 
 ### Flutter 学习之路 Github 地址
 

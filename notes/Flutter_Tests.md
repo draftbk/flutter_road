@@ -3,7 +3,7 @@
 
 ### 关于 Flutter 的测试
 
-前几天去纽约的 Google 参加 Flutter 的聚会，听到在 Google Material Flutter 团队的 MH Johnson 在台上讲 Flutter 的测试，想到自己该学习了哈哈哈。
+前段时间去纽约的 Google 参加 Flutter 的聚会，听到在 Google Material Flutter 团队的 MH Johnson 在台上讲 Flutter 的测试，想到自己该学习了哈哈哈。
 
 一般来说，经过良好测试的应用应该有很多 unit tests 和 widget test，通过代码覆盖率([code coverage](https://en.wikipedia.org/wiki/Code_coverage))进行跟踪，以及需要足够的集成测试来涵盖所有重要的使用场景。下面的表格，总结了在不同类型测试的特点，方便在选择的时候进行权衡：
 
@@ -20,7 +20,7 @@
 
 #### 单元测试
 
-> 参考文章（主要就是按这个学的,英文 ok 可以直接看官网）：[link](https://flutter.dev/docs/cookbook/testing/unit/introduction)
+> 参考文章（主要就是按这个学习翻译的,英文 ok 可以直接看官网）：[link](https://flutter.dev/docs/cookbook/testing/unit/introduction)
 
 测试单一功能、方法或类。例如，被测单元的外部依赖性通常被模拟出来，如package:mockito。 单元测试通常不会读取/写入磁盘、渲染到屏幕，也不会从运行测试的进程外部接收用户操作。单元测试的目标是在各种条件下验证逻辑单元的正确性。
 
@@ -129,7 +129,7 @@ flutter test test/counter_test.dart
 其他运行方式可以在这里看：[link](https://flutter.dev/docs/cookbook/testing/unit/introduction)
 
 #### Widget 测试
-> 参考文章（主要就是按这个学的,英文 ok 可以直接看官网）：[link](https://flutter.dev/docs/cookbook/testing/widget/introduction)
+> 参考文章（主要就是按这个学习翻译的,英文 ok 可以直接看官网）：[link](https://flutter.dev/docs/cookbook/testing/widget/introduction)
 
 ##### 第一步：添加 flutter_test 包
 
@@ -145,6 +145,83 @@ dev_dependencies:
 ```
 
 ##### 第二步：创建一个要测试的 Widget
+
+```Dart
+class MyWidget extends StatelessWidget {
+  final String title;
+  final String message;
+
+  const MyWidget({
+    Key key,
+    @required this.title,
+    @required this.message,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        body: Center(
+          child: Text(message),
+        ),
+      ),
+    );
+  }
+}
+```
+
+##### 第三步：写测试代码
+
+有了要测试的 Widget 以后，可以开始写测试了:
+
+1. 创建一个 **testWidgets** 方法
+2. 用 **tester.pumpWidget** 来创建一个 **MyWidget**
+3. 用 **finder** 来在 Widget tree 中找到 title 和 message 的 Text Widgets
+4. 用 **expect** 和 **findsOneWidget** 来测试这个 Widget 是不是只出现了一次
+
+```Dart
+void main() {
+  // with Widgets in the test environment.
+  testWidgets('MyWidget has a title and message', (WidgetTester tester) async {
+    // Create the Widget tell the tester to build it
+    await tester.pumpWidget(MyWidget(title: 'T', message: 'M'));
+
+    // Create our Finders
+    final titleFinder = find.text('T');
+    final messageFinder = find.text('M');
+
+    // Use the `findsOneWidget` matcher provided by flutter_test to verify our
+    // Text Widgets appear exactly once in the Widget tree
+    expect(titleFinder, findsOneWidget);
+    expect(messageFinder, findsOneWidget);
+  });
+}
+```
+
+##### 第四步：运行测试
+
+在 Android Studio 里邮件代码文件点运行就能运行了：
+
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/test/widget_test_result.png)
+
+##### 补充
+
+第三步中的 **findsOneWidget** 是一个 **Matcher**，还有一些其他的 **Matcher** 可以用：
+
+```
+findsOneWidget 只有一个对应的 Widget
+findsNothing 没有找到对应的 Widget
+findsWidgets 找到一个或一个以上对应的 Widget
+findsNWidgets 找到 N 个 Widget
+
+最后那个查了一下 API, 是这么用的:
+expect(find.text('Save'), findsNWidgets(2));
+```
+
 
 
 

@@ -113,8 +113,6 @@ void main() {
 }
 ```
 
-##### 第五步：如果有多个测试，可以用 *group* 
-
 ##### 第六步：运行测试
 
 在命令行下运行：
@@ -444,8 +442,10 @@ flutter drive --target=test_driver/app.dart
 ### 参考文档
 
 - [https://flutterchina.club/testing](https://flutterchina.club/testing)
-
 - [https://flutter.dev/docs/testing](https://flutter.dev/docs/testing)
+- [https://flutter.dev/docs/cookbook/testing/unit/introduction](https://flutter.dev/docs/cookbook/testing/unit/introduction)
+- [https://flutter.dev/docs/cookbook/testing/widget/introduction](https://flutter.dev/docs/cookbook/testing/widget/introduction)
+- [https://flutter.dev/docs/cookbook/testing/integration/introduction](https://flutter.dev/docs/cookbook/testing/integration/introduction)
 
 
 

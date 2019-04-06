@@ -31,6 +31,10 @@
 
 <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_async.gif" width="28%" height="28%"> <img src="https://github.com/draftbk/Blog_Resource/blob/master/Flutter/gif/flutter_road_network.gif" width="28%" height="28%"> 
 
+
+## 其他
+- [Flutter 学习之路 - 测试（单元测试，Widget 测试，集成测试）](https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Tests.md)
+
 ## 微信群
 
 欢迎加入一起入坑 Flutter ！

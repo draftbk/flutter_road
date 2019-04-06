@@ -232,12 +232,203 @@ expect(find.text('Save'), findsNWidgets(2));
 ```
 
 
-
-
 #### 集成测试
 > 参考文章（主要就是按这个学习翻译的,英文 ok 可以直接看官网）：[link](https://flutter.dev/docs/cookbook/testing/integration/introduction)
 
 单元测试 和 Widget 测试可以用于测试单独的 class, function, 和 Widget。当要测试各部分一起运行或者测试一个 application 在真实设备上运行的表现的时候就要用到**集成测试**。
+
+##### 第一步：创建要测试的 App
+
+首先，要创建一个被测试的 App, 这个应该功能就是按悬浮按钮 +1，就是初始给的那个 demo, 不一样的在于这里我们给 **Text** 和 **FloatingActionButton** 添加了 **ValueKey** 以便在测试时识别这些特点的 Widgets。
+
+```Dart
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Counter App',
+      home: MyHomePage(title: 'Counter App Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              // Provide a Key to this specific Text Widget. This allows us
+              // to identify this specific Widget from inside our test suite and
+              // read the text.
+              key: Key('counter'),
+              style: Theme.of(context).textTheme.display1,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        // Provide a Key to this the button. This allows us to find this
+        // specific button and tap it inside the test suite.
+        key: Key('increment'),
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+```
+
+##### 第二步：添加 flutter_driver 依赖
+
+在集成测试中要用到 **flutter_driver**，在 **pubspec.yaml** 中加入它。
+
+```Dart
+dev_dependencies:
+  flutter_driver:
+    sdk: flutter
+  test: any
+```
+同时，也添加了 **test** ，因为也要用到这里面的方法和断言。
+
+##### 第三步：写 test 代码
+
+1. 创建文件夹 **test_driver**（和 lib 文件同级）
+2. 在文件夹下创建两个文件(命名可以随意)，一个是创建指令化的 Flutter 应用程序，使我们能 "运行" 这个app,并记录运行的 performance  （app.dart），另一个用于写测试来判断app 是不是按预期运行（app_test.dart），目录如下：
+
+```
+flutter_road_test/
+  lib/
+    main.dart
+  test_driver/
+    app.dart
+    app_test.dart
+```
+
+
+##### 第四步：创建指令化的 Flutter 应用程序
+
+创建指令化的 Flutter 应用程序要有这两步：
+
+1. 它启用了Flutter Driver的扩展
+2. 运行 App
+
+在 **test_driver/app.dart** 文件里写下这两步：
+
+```Dart
+import 'package:flutter_driver/driver_extension.dart';
+import 'package:flutter_road_test/main.dart' as app;
+
+void main() {
+  // This line enables the extension
+  enableFlutterDriverExtension();
+
+  // Call the `main()` function of your app or call `runApp` with any widget you
+  // are interested in testing.
+  app.main();
+}
+```
+
+##### 第五步：写测试
+
+现在有了指令化的 app, 我们要写测试了，测试需要下面四步:
+
+1. 用 **SeralizableFinders** 来定位特定的 Widgets
+2. 测试前，在 **setUpAll** 方法中连接 app
+3. 测试一些重要的情况
+4. 当测试完，在 **teardownAll** 方法中断开连接
+
+
+```Dart
+// Imports the Flutter Driver API
+import 'package:flutter_driver/flutter_driver.dart';
+import 'package:test/test.dart';
+
+void main() {
+  group('Counter App', () {
+    // 通过 Finders 找到对应的 Widgets
+    final counterTextFinder = find.byValueKey('counter');
+    final buttonFinder = find.byValueKey('increment');
+
+    FlutterDriver driver;
+
+    // 连接 Flutter driver 
+    setUpAll(() async {
+      driver = await FlutterDriver.connect();
+    });
+
+    // 当测试完成断开连接
+    tearDownAll(() async {
+      if (driver != null) {
+        driver.close();
+      }
+    });
+
+    test('starts at 0', () async {
+      // 用 `driver.getText` 来判断 counter 初始化是 0
+      expect(await driver.getText(counterTextFinder), "0");
+    });
+
+    test('increments the counter', () async {
+      // 首先，点击按钮
+      await driver.tap(buttonFinder);
+
+      // 然后，判断是否增加了 1
+      expect(await driver.getText(counterTextFinder), "1");
+    });
+  });
+}
+```
+
+##### 第六步：运行测试
+
+运行一个 Android 或者 iOS 模拟器或者连上自己的手机，然后从项目根目录下运行下面的命令：
+
+```
+flutter drive --target=test_driver/app.dart
+```
+
+命令的作用：
+
+1. 运行目标 app 并安装
+2. 启动 app
+3. 运行 **app_test.dart** 里的测试
+
+结果：
+
+![](https://github.com/draftbk/Blog_Resource/blob/master/Flutter/picture/test/integration_test_result.png)
 
 ### 代码地址
 

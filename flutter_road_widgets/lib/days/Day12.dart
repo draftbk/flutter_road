@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 /**
  * Day 12
  * Test
@@ -5,6 +6,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:core';
 
 
@@ -16,20 +18,14 @@ class Day12 extends StatefulWidget {
 }
 
 class Day12State extends State<Day12> {
-  String mytext = "Console";
-  double buttonWidth = 200;
-  String getUrl="https://httpbin.org/ip";
-  String postUrl="http://ip.taobao.com/service/getIpInfo.php";
-  String searchIp='117.89.35.58';
+
+
   void setMyTextState(String newText) {
     setState(() {
-      mytext = newText;
     });
   }
 
-  void unitTest()  {
 
-  }
 
 
 
@@ -41,45 +37,26 @@ class Day12State extends State<Day12> {
       margin: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
       height: 400.0,
       child: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new ButtonTheme(
-              minWidth: buttonWidth,
-              child: RaisedButton(
-                onPressed:  unitTest,
-                child: new Text('Unit Test'),
-                color: Color(0xFFe16552),
+        child: new RichText(
+          text: new TextSpan(
+            children: [
+              new TextSpan(
+                text: '测试的项目不适合写在这个项目里，可以查看我写的blog(里面也有代码链接): \n',
+                style: new TextStyle(color: Colors.black,fontSize: 22),
               ),
-            ),
-            new ButtonTheme(
-              minWidth: buttonWidth,
-              child: RaisedButton(
-                onPressed: unitTest,
-                child: new Text('Widget Test'),
-                color: Color(0xFFe16552),
+              new TextSpan(
+                text: 'https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Tests.md\n',
+                style: new TextStyle(color: Colors.blue,fontSize: 22),
+                recognizer: new TapGestureRecognizer()
+                  ..onTap = () { launch('https://github.com/draftbk/flutter_road/blob/master/notes/Flutter_Tests.md');
+                  },
               ),
-            ),
-            new ButtonTheme(
-              minWidth: buttonWidth,
-              child: RaisedButton(
-                onPressed: unitTest,
-                child: new Text('Integration Test'),
-                color: Color(0xFFe16552),
+              new TextSpan(
+                text: '希望对你有帮助<(￣︶￣)>',
+                style: new TextStyle(color: Colors.black,fontSize: 22),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
-    Widget consoleSection = Container(
-      margin: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
-      height: 300.0,
-      width: double.infinity,
-      child: Text(
-        mytext,
-        style: TextStyle(
-          fontSize: 18,
+            ],
+          ),
         ),
       ),
     );
@@ -91,12 +68,6 @@ class Day12State extends State<Day12> {
         ),
         body: Column(children: <Widget>[
           asyncSection,
-          new Container(
-            color: Color(0xFFe16552),
-            height: 2,
-            width: double.infinity,
-          ),
-          consoleSection,
         ]));
   }
 }

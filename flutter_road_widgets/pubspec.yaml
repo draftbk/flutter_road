@@ -23,6 +23,7 @@ dependencies:
   transparent_image: any
   cached_network_image: any
   dio: any
+  url_launcher: any
 
 dev_dependencies:
   test: any

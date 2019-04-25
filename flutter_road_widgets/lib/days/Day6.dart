@@ -74,7 +74,7 @@ class Day6State extends State<Day6> {
                   leading: Icon(Icons.map),
                   title: Text('Map'),
                   onTap: () {
-                    setMyTextState("你选择了: Map");
+                    setMyTextState("你点击了: Map");
                     Navigator.of(context).pop();
                   },
                 ),
@@ -82,7 +82,7 @@ class Day6State extends State<Day6> {
                   leading: Icon(Icons.photo_album),
                   title: Text('Album'),
                   onTap: () {
-                    setMyTextState("你选择了: Album");
+                    setMyTextState("你点击了: Album");
                     Navigator.of(context).pop();
                   },
                 ),
@@ -90,7 +90,7 @@ class Day6State extends State<Day6> {
                   leading: Icon(Icons.phone),
                   title: Text('Phone'),
                   onTap: () {
-                    setMyTextState("你选择了: Phone");
+                    setMyTextState("你点击了: Phone");
                     Navigator.of(context).pop();
                   },
                 ),
